@@ -22,10 +22,39 @@ a{
 }
 
 .item_image_wrapper{
-    width: 100%;
+    width: 60%;
 }
 
 .item_image_wrapper img{
     width: 100%;
     object-fit: contain;
+}
+
+.dropdown_menu_items{
+    height: 50px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    padding: 0px 15px;
+    display: grid;
+    grid-template-columns: 1.2fr 3fr 0.6fr;;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.menu_item_img_container{
+  height: 50px;
+}
+
+.menu_item_img_container img{
+    height: 100%;
+}
+
+.menu_item_title{
+    display: grid;
+    font-size: 16px;
+}
+
+.menu_item_delete{
+    cursor: pointer;
+    font-size: 24px;
 }
