@@ -7,7 +7,9 @@ import {AiFillDelete} from 'react-icons/ai';
 
 const Header = () => {
     const {state:{cart},
-           dispatch
+           dispatch,
+           productDispatch,
+           productState
           } = CartState(); 
     
     return (
@@ -21,6 +23,13 @@ const Header = () => {
                         style={{width:500}}
                         placeholder='Search a product'
                         className='m-auto'
+                        value={productState.searchQuery || ''}
+                        onChange={(e)=>productDispatch(
+                            {
+                                type:'searchTerm',
+                                payload: e.target.value
+                            }
+                        )}
                     />
                 </Navbar.Text>
                 <Nav>
@@ -30,7 +39,7 @@ const Header = () => {
                             <Badge id="badgeNav">{cart.length}</Badge>{' '}
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu style={{minWidth:390,paddingRight:18}}>
+                        <Dropdown.Menu align="left" style={{minWidth:390,paddingRight:18,left:'inherit',right:0}}>
                             {
                                 cart.length > 0 ? (
                                     <>

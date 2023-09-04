@@ -35,7 +35,9 @@ const Context = ({children}) => {
         <Cart.Provider
         value={{
             state,
-            dispatch
+            dispatch,
+            productDispatch,
+            productState
         }}
         >
             {children}

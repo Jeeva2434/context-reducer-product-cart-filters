@@ -1,18 +1,18 @@
 import React from 'react'
 import {AiOutlineStar,AiFillStar} from 'react-icons/ai';
 
-const Ratings = ({ratings}) => {
+const Ratings = ({ratings,starClick,styles}) => {
 
     return (
         <section className='flex'>
         {[...Array(5)].map((_,i) => {
                 if(ratings > i){
                     return (
-                        <span key={i}><AiFillStar/></span>
+                        <span key={i} onClick={()=>starClick(i)} style={styles}><AiFillStar/></span>
                     )
                 }else{
                     return(
-                        <span key={i}><AiOutlineStar/></span>
+                        <span key={i} onClick={()=>starClick(i)} style={styles}><AiOutlineStar/></span>
                     )
                 }
         })}

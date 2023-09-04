@@ -20,6 +20,34 @@ export const cartReducer = (state,action) => {
 
 export const productReducer = (state,action) => {
     switch(action.type){
+
+        case 'searchTerm':
+            return {...state,searchQuery: action.payload}
+
+        case 'Low_To_High':
+            return {...state, sort: action.type}
+
+        case 'High_To_Low':
+            return {...state, sort: action.type}
+
+        case 'byStock':
+            return {...state, byStock: !state.byStock}
+ 
+        case 'byFastDelivery':
+            return {...state, byFastDelivery: !state.byFastDelivery}
+
+        case 'Change_ratings':
+            return {...state, byRating: action.payload}
+            
+        case 'clearAllFilter':
+            return {...state,
+                    sort:'',
+                    byStock : false,
+                    byFastDelivery : false,
+                    byRating : 0,
+                    searchQuery : ''
+            }
+            
         default : return state;
     }
 }
