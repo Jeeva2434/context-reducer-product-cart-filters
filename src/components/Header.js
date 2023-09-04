@@ -4,6 +4,7 @@ import {FaShoppingCart} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { CartState } from '../context/Context';
 import {AiFillDelete} from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
     const {state:{cart},
@@ -18,6 +19,7 @@ const Header = () => {
                 <Navbar.Brand>
                     <Link to='/'>Shopping Cart</Link>
                 </Navbar.Brand>
+                {useLocation().pathname.split('/')[1] !== 'cart' &&
                 <Navbar.Text className='search'>
                     <FormControl
                         style={{width:500}}
@@ -31,7 +33,7 @@ const Header = () => {
                             }
                         )}
                     />
-                </Navbar.Text>
+                </Navbar.Text>}
                 <Nav>
                     <Dropdown>
                         <Dropdown.Toggle variant="success">
